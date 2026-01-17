@@ -29,5 +29,17 @@ namespace WEBAPI.Controllers
             })
             .ToArray();
         }
+
+        /// <summary>
+        /// Simple hello endpoint.
+        /// </summary>
+        [HttpGet("hello")]
+        [Produces("text/plain")]
+        [ProducesResponseType(typeof(string), Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+        public ActionResult<string> GetHello()
+        {
+            _logger.LogInformation("GET /{Controller}/hello called", nameof(WeatherForecastController));
+            return Content("Hello World", "text/plain");
+        }
     }
 }
