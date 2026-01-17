@@ -29,5 +29,11 @@ namespace WEBAPI.Controllers
             })
             .ToArray();
         }
+        // GET api/sample
+        [HttpGet("hello")]
+        public IActionResult GetHello()
+        {
+            return Ok("Hello World"); // Returns HTTP 200 OK with a message
+        }
     }
 }
