@@ -29,11 +29,17 @@ namespace WEBAPI.Controllers
             })
             .ToArray();
         }
-        // GET api/sample
+
+        /// <summary>
+        /// Simple hello endpoint.
+        /// </summary>
         [HttpGet("hello")]
-        public IActionResult GetHello()
+        [Produces("text/plain")]
+        [ProducesResponseType(typeof(string), Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+        public ActionResult<string> GetHello()
         {
-            return Ok("Hello World"); // Returns HTTP 200 OK with a message
+            _logger.LogInformation("GET /{Controller}/hello called", nameof(WeatherForecastController));
+            return Content("Hello World", "text/plain");
         }
     }
 }
