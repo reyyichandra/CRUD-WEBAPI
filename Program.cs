@@ -1,7 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Disable console logging (removes all default providers, including Console).
+builder.Logging.ClearProviders();
+// Optionally add other providers you still want, e.g.:
+// builder.Logging.AddDebug();
 
+
+// Add services to the container.
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
